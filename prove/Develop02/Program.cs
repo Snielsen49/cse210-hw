@@ -33,7 +33,7 @@ class Program
                  DateTime currentDate = DateTime.Now;
                 newEntry._date = currentDate.ToShortDateString();
                 Console.WriteLine("How happy are you today on a scale of 1-10?");
-                newEntry._happynessNum = int.Parse(Console.ReadLine());
+                newEntry._happinessNum = int.Parse(Console.ReadLine());
                 myJornal._entrys.Add(newEntry);
 
 
@@ -75,7 +75,7 @@ class Program
         {
             foreach(Entry ent in mylist)
             {
-                outputFile.WriteLine($"{ent._date}~~{ent._promptNum}~~{ent._text}~~{ent._happynessNum}");
+                outputFile.WriteLine($"{ent._date}~~{ent._promptNum}~~{ent._text}~~{ent._happinessNum}");
             }
         }
     }
@@ -95,7 +95,7 @@ class Program
             newEntry._date = splitline[0];
             newEntry._promptNum = int.Parse(splitline[1]);
             newEntry._text = splitline[2];
-            newEntry._happynessNum = int.Parse(splitline[3]);
+            newEntry._happinessNum = int.Parse(splitline[3]);
             myJornal._entrys.Add(newEntry);
 
         }

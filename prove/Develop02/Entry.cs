@@ -3,7 +3,7 @@ public class Entry
     public string _text;
     public string _date;
     public int _promptNum;
-    public int _happynessNum;
+    public int _happinessNum;
     public List<string> _prompt = new List<string>()
     {
         "What are some things you are grateful for today, and why?",
@@ -22,7 +22,7 @@ public class Entry
     {
         Console.WriteLine($"Date:{_date}  Prompt:{_prompt[_promptNum]}");
         Console.WriteLine(_text);
-        Console.WriteLine($"Your overall happyness level from 1-10 was {_happynessNum}.");
+        Console.WriteLine($"Your overall happyness level from 1-10 was {_happinessNum}.");
 
     }
 }
