@@ -1,0 +1,46 @@
+@startuml develop04
+
+class Main {
+  - menu choice: int
+  + menu loop(): void
+  
+}
+
+class Activity {
+  - duration: int
+  +setduration(duration time): void
+  +getduration(): int
+  +startmsg(activity name, activity discription): string 
+  +pause_activity_and_dislpay_spinner(sec):void
+  +endmsg(activity name, duration): string
+}
+
+class Breathing_Activity{
+  +loop_for_breathing(): string
+
+}
+class Reflection_Activity{
+  +random_prompt(): string
+  +questions(): string
+   
+
+}
+class Listing_Activity{
+  -ans: list
+  +random_prompt(): string
+  +display_responses(): string
+  +save_response(ans): void 
+
+}
+Main -- Breathing_Activity
+Main -- Reflection_Activity
+Main -- Listing_Activity
+
+Breathing_Activity <|-- Activity
+Reflection_Activity <|-- Activity
+Listing_Activity <|-- Activity
+
+
+
+
+
