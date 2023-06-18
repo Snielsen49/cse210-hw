@@ -1,0 +1,56 @@
+@startuml develop04
+
+class Main {
+  - _menuchoice: int
+  - _fileName: string
+  - _listofGoals: goal
+  - _points: int
+
+  -LoadFile(_fileName): List<Goal>
+  -SaveFile(_fileName): void
+  
+}
+
+abstract class Goal {
+    # _goal: string
+    # _discription: string
+    # _points: int
+    # _completed: boal
+
+    {abstract} + SetGoal(): Void
+    {abstract} + DisplayGoal(): Void
+    {abstract} + CompletGoal(): int
+}
+
+class SimpleGoal{
+    + SimpleGoal(_goal,_discription,_points,_completed)
+    + DisplayGoal(): Void
+    + CompletGoal(): int
+}
+class EternalGoal{
+    - _numDone: int
+    + EternalGoal(_goal,_discription,_points,_completed)
+    + DisplayGoal(): Void
+    + CompletGoal(): int
+  
+}
+class CheckListGoal{
+    - _numDone: int
+    - _numGoal: int
+    - _bounsPoints: int
+    + CheckListGoal(_goal,_discription,_points,_bounsPoints,_completed,_numDone,_numGoal)
+    + DisplayGoal(): Void
+    + CompletGoal(): int
+}
+Main -- CheckListGoal
+Main -- EternalGoal
+Main -- SimpleGoal
+
+CheckListGoal <|-- Goal
+EternalGoal <|-- Goal
+SimpleGoal <|-- Goal
+
+
+
+
+
