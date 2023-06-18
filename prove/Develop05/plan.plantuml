@@ -1,4 +1,4 @@
-@startuml develop04
+@startuml develop05
 
 class Main {
   - _menuchoice: int
@@ -49,6 +49,9 @@ Main -- SimpleGoal
 CheckListGoal <|-- Goal
 EternalGoal <|-- Goal
 SimpleGoal <|-- Goal
+
+
+@enduml develop05
 
 
 
