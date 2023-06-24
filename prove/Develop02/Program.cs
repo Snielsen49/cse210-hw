@@ -68,7 +68,7 @@ class Program
         
     }
     //saving the list to a given file 
-    public static void SaveListToFile(List<Entry> mylist,string filename)
+    private static void SaveListToFile(List<Entry> mylist,string filename)
     {
         Console.WriteLine("saving file");
         using(StreamWriter outputFile = new StreamWriter(filename))
@@ -80,7 +80,7 @@ class Program
         }
     }
     //loading a jornal from a given file 
-    public static Jornal LoadListFromFile(Jornal myJornal, string filename)
+    private static Jornal LoadListFromFile(Jornal myJornal, string filename)
     {
         Console.WriteLine("Loading File");
 
