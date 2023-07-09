@@ -1,0 +1,65 @@
+@startuml plan
+
+class Bank {
+  - accounts: List<Account>
+  + createAccount(owner: Customer): Account
+  + main(): void
+  + generateReports(): void
+}
+
+class Account {
+  - accountNumber: String
+  - balance: double
+  - owner: Customer
+  + deposit(amount: double): void
+  + withdraw(amount: double): void
+  + getBalance(): double
+  + transferFunds(destination: Account, amount: double): void
+}
+
+class Customer {
+  - name: String
+  - address: String
+  - contactInfo: String
+}
+
+class Transaction {
+  - transactionType: String
+  - amount: double
+  + performDeposit(account: Account, amount: double): void
+  + performWithdrawal(account: Account, amount: double): void
+}
+
+class SavingsAccount {
+  + calculateInterest(): double
+}
+
+class CheckingAccount {
+  + handleOverdraft(): void
+}
+
+class ReportGenerator {
+  + generateAccountStatement(account: Account): void
+  + generateCustomerInformation(customer: Customer): void
+}
+
+class AuthenticationManager {
+  + authenticateUser(username: String, password: String): boolean
+  + authorizeUser(user: User, operation: String): boolean
+}
+
+Bank --> Account
+Bank --> ReportGenerator
+Bank --> AuthenticationManager
+Account --> Customer
+Account -->  Transaction
+SavingsAccount --> Account
+CheckingAccount --> Account
+Transaction -->  Account
+ReportGenerator -->  Account
+ReportGenerator --> Customer
+AuthenticationManager --> Account
+
+
+
+@enduml plan
