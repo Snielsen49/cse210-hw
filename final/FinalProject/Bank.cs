@@ -9,9 +9,22 @@ class Program
         bool run = true;
         bool main = true;
         int customernum = -1;
-        
-        
         List<Customer> customers = new List<Customer>();
+
+        Customer bob = new Customer("Bob", "1234", "123 Main St");
+        customers.Add(bob);
+
+       
+        Checkings checking = new Checkings(1000, bob, 1);
+        bob.AddAccount(checking);
+        Savings savings = new Savings(5000, bob, 2);
+        bob.AddAccount(savings);
+        checking.Deposit(500);
+        checking.Withdraw(200);
+        savings.Deposit(1000);
+        savings.Withdraw(500);
+        
+
         while (main)
         {
             Console.Clear();
@@ -29,16 +42,18 @@ class Program
                         Console.WriteLine("Please enter your name:");
                         string name = Console.ReadLine();
                         
+                        int j = 0;
                         foreach (Customer cust in customers)
                         {
+                            
                             string testname = cust.GetName();
                             if (name == testname)
                             {
-                                customernum = i; 
+                                customernum = j; 
                             }
                             else
                             {
-                                i++;
+                                j++;
                             }
                         }
                         if (customernum != -1)
@@ -182,9 +197,11 @@ class Program
                                 Console.Clear();
                                 Console.WriteLine("What is the name of the customer:");
                                 string customername = Console.ReadLine();
-                                customernum = -1;                                
+                                customernum = -1;     
+                                i = 0;                           
                                 foreach (Customer cust in customers)
                                 {
+                                   
                                     string testname = cust.GetName();
                                     if (customername == testname)
                                     {
